@@ -1,16 +1,28 @@
 # GlobPattern
+
 Swift package to parse and evaluate glob patterns
 
 ## Why does this exist?
 
 Glob patterns can be matched with the C function `fnmatch`, and files can be located with `glob` so why make this at all?
 
-Well, it turns out that a bunch of systems use glob patterns with extensions. The most common one is grouping, which is all handled by the shell. I'm not sure if this is just an oversight, but these "glob" patterns won't actually work right with the C library functions.
+Well, it turns out that a bunch of systems use "glob" patterns that do not follow the actual syntax rules of glob. The most common one is grouping, which is all handled by the shell. I've encountered this in a number of places, notably [Language Server Protocol][lsp]. I'm not sure if this is just an oversight, but these patterns won't actually work right with the C library functions.
 
-- Language Server Protocol: uses "{}" grouping
-- editorconfig: uses "{}" grouping AND a custom range notation
+This provides both parsing and evaluation, making it much more efficient than relying on `glob` + shell expansion. It's also just more convenient.
 
-This library offers three modes - `fnmatch-compatible`, `grouping`, and `grouping-with-ranges`. It provides both parsing and evaluation, making it much more efficient than relying on `glob` + shell expansion. It's also just more convenient.
+Supported Modes:
+
+- `strict`: provides identical results to `fnmatch`
+- `grouping`: patterns with `{}` grouping (used by LSP)
+- `editorconfig`: patterns with `{}` grouping and `{}` ranges (see the [editorconfig spec][editorconfig])
+
+## Usage
+
+```swift
+let pattern = Glob.pattern("file.{js,py}", mode: .grouping)
+
+let result = pattern.match("file.js")
+```
 
 ## Contributing and Collaboration
 
@@ -23,3 +35,6 @@ I prefer indentation with tabs for improved accessibility. But, I'd rather you u
 I'd love to hear from you! Get in touch via [mastodon](https://mastodon.social/@mattiem), an issue, or a pull request.
 
 By participating in this project you agree to abide by the [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+
+[lsp]: https://microsoft.github.io/language-server-protocol/
+[editorconfig]: https://spec.editorconfig.org
