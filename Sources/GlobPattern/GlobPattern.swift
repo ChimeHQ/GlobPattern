@@ -8,7 +8,7 @@ import Glibc
 
 public enum Glob {
 	/// Control how glob patterns are intrepreted.
-	public enum Mode {
+	public enum Mode: Hashable, Sendable {
 		/// Strictly follow glob patterns only
 		case strict
 
@@ -20,7 +20,7 @@ public enum Glob {
 	}
 
 	/// Represents a glob pattern
-	public struct Pattern {
+	public struct Pattern: Hashable, Sendable {
 		private let patternString: String
 		private let nodes: [Parser.Node]
 		private let mode: Glob.Mode

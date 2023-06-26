@@ -6,7 +6,7 @@ public final class Parser {
 		case invalidEscape(Character)
 	}
 
-	public enum GroupItem: Hashable, CustomStringConvertible {
+	public enum GroupItem: Hashable, Sendable, CustomStringConvertible {
 		case choice([GroupItem])
 		case string(String)
 
@@ -22,7 +22,7 @@ public final class Parser {
 		}
 	}
 
-	public enum Node: Hashable {
+	public enum Node: Hashable, Sendable {
 		case string(String)
 		case runMatch(Bool)
 		case characterMatch
