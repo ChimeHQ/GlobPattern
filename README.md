@@ -1,6 +1,7 @@
 [![Build Status][build status badge]][build status]
 [![License][license badge]][license]
 [![Platforms][platforms badge]][platforms]
+[![Documentation][documentation badge]][documentation]
 
 # GlobPattern
 
@@ -48,3 +49,5 @@ By participating in this project you agree to abide by the [Contributor Code of 
 [license badge]: https://img.shields.io/github/license/ChimeHQ/GlobPattern
 [platforms]: https://swiftpackageindex.com/ChimeHQ/GlobPattern
 [platforms badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FChimeHQ%2FGlobPattern%2Fbadge%3Ftype%3Dplatforms
+[documentation]: https://swiftpackageindex.com/ChimeHQ/GlobPattern/main/documentation
+[documentation badge]: https://img.shields.io/badge/Documentation-DocC-blue
