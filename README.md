@@ -1,11 +1,17 @@
+<div align="center">
+	
 [![Build Status][build status badge]][build status]
-[![License][license badge]][license]
 [![Platforms][platforms badge]][platforms]
 [![Documentation][documentation badge]][documentation]
+
+</div>
 
 # GlobPattern
 
 Swift package to parse and evaluate glob patterns
+
+> [!NOTE]
+> Please check out this more capable replacement: https://github.com/davbeck/swift-glob
 
 ## Why does this exist?
 
